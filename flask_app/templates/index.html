@@ -14,8 +14,8 @@
   </head>
   <body>
     <form
-      action="/process"
-      method="post"
+      action="/create_dojo"
+      method="POST"
       class="bg-dark text-primary p-5 rounded col-6 mx-auto"
     >
       <!-- ********************************************************************Name Field -->
@@ -30,37 +30,37 @@
         <select name="location" class="form-control">
           <option value="">--SELECT ONE--</option>
           ">
-          <option value="">Chicago</option>
+          <option value="Chicago">Chicago</option>
           ">
-          <option value="">Burbanck</option>
+          <option value="Burbanck">Burbanck</option>
           ">
-          <option value="">Seattle</option>
+          <option value="Seattle">Seattle</option>
           ">
-          <option value="">Online</option>
+          <option value="Online">Online</option>
           ">
         </select>
       </div>
       <!-- ********************************************************************Language Field -->
       <div class="form-group">
-        <label for="language">Favorite language:</label>
-        <select name="language" class="form-control">
+        <label for="fav_language">Favorite language:</label>
+        <select name="fav_language" class="form-control">
           <option value="">--SELECT ONE--</option>
           ">
-          <option value="">Python</option>
+          <option value="Python">Python</option>
           ">
-          <option value="">HTML</option>
+          <option value="HTML">HTML</option>
           ">
-          <option value="">CSS</option>
+          <option value="CSS">CSS</option>
           ">
-          <option value="">JavaScript</option>
+          <option value="JavaScript">JavaScript</option>
           ">
         </select>
       </div>
       <!-- ********************************************************************Comment Field -->
       <div class="form-group">
-        <label for="name">Comments:</label>
+        <label for="comment">Comments:</label>
         <textarea
-          name="comments"
+          name="comment"
           cols="30"
           rows="10"
           class="form-control"
@@ -68,5 +68,18 @@
       </div>
       <input type="submit" value="Submit" class="btn btn-primary" />
     </form>
+    {% with messages = get_flashed_messages() %}
+    <!-- declare a variable called messages -->
+    {% if messages %}
+    <!-- check if there are any messages -->
+    {% for message in messages %}
+    <!-- loop through the messages -->
+    <p>{{message}}</p>
+    <!-- display each message in a paragraph tag -->
+    {% endfor %}
+    <!--  -->
+    {% endif %}
+    <!--  -->
+    {% endwith %}
   </body>
 </html>
